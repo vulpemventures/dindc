@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tag=$(curl --silent "https://api.github.com/repos/docker/compose/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/')
+os=$(uname -s)
+arch=$(uname -m)
+bin=/usr/local/bin
+curl -L "https://github.com/docker/compose/releases/download/$tag/docker-compose-$os-$arch" -o $bin/docker-compose && chmod +x $bin/docker-compose
