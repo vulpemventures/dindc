@@ -4,3 +4,5 @@ FROM jpetazzo/dind
 ADD install .
 
 RUN bash install
+
+ENTRYPOINT ["wrapdocker"]
